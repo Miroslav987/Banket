@@ -1,0 +1,34 @@
+$dark-text: #373E44;
+$checkbox-fill: #F6F8F9;
+$checkbox-border: #B0BABF;
+
+.filters{
+    font-family: 'Inter', sans-serif;
+    color: $dark-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 4rem 6.5rem;
+    h5{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    p{
+        font-size: 12px;
+    }
+    .filter-header{
+        display: flex;
+    }
+    .filter-h6{
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    svg{
+        width: 2rem;
+        height: 2rem;
+        color: $checkbox-border;
+    }
+}
