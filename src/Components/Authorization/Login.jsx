@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -13,9 +13,11 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
-import back from "../img/back.svg";
-import exit from "../img/exit.svg";
-const Authorization = () => {
+import back from "../../img/back.svg";
+import exit from "../../img/exit.svg";
+import google from "../../img/google.svg";
+import { useActions } from "../hooks/UseActions";
+export const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
@@ -23,6 +25,24 @@ const Authorization = () => {
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useActions();
+  function SaveLog() {
+    if (!email.trim() || !password.trim()) {
+      alert("Неправильно");
+      return;
+    }
+    let formData = new FormData();
+    let obj = {
+      email: email,
+      password: password,
+    };
+    console.log(obj);
+    formData.append("email", email);
+    formData.append("password", password);
+    login(formData);
+  }
   return (
     <>
       <Box
@@ -46,7 +66,7 @@ const Authorization = () => {
               <img src={exit} alt="" />
             </Box>
             <Typography sx={{ margin: "40px auto", fontSize: "23px" }}>
-              Регистрация
+              Вход
             </Typography>
 
             <Box
@@ -57,15 +77,19 @@ const Authorization = () => {
               }}>
               <TextField
                 id="outlined-basic"
-                label="Outlined"
+                label="Логин"
                 variant="outlined"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <br />
               <FormControl variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
-                  Password
+                  Пароль
                 </InputLabel>
                 <OutlinedInput
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
                   endAdornment={
@@ -83,44 +107,38 @@ const Authorization = () => {
                 />
               </FormControl>
               <br />
-              <FormControl variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
-                  Password Confirm
-                </InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end">
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                />
-              </FormControl>
-              <br />
-              <Box sx={{ display: "flex", justifyContent: "end" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "end",
+                }}>
                 <Typography
                   sx={{ color: "#2439F9", borderBottom: "2px solid #2439F9" }}>
-                  Уже Зарегистрированы ?
+                  Забыли пароль ?
                 </Typography>
               </Box>
             </Box>
             <Button
+              onClick={() => SaveLog()}
               sx={{
                 background: "#A07D50",
                 color: "white",
                 width: "200px",
-                margin: "50px auto",
+                margin: "30px auto",
                 textTransform: "capitalize",
               }}>
-              Зарегистрироваться
+              Войти
+            </Button>
+            <Button
+              sx={{
+                border: "1px solid grey",
+                color: "grey",
+                width: "300px",
+                margin: " auto",
+                textTransform: "capitalize",
+                borderRadius: "10px",
+              }}>
+              <img src={google} alt="" /> Или войти через Google
             </Button>
           </Box>
         </Box>
@@ -128,5 +146,3 @@ const Authorization = () => {
     </>
   );
 };
-
-export default Authorization;
