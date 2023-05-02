@@ -5,6 +5,7 @@ import { Chosen } from "./Components/MyInfo/Chosen";
 import { EditProfile } from "./Components/MyInfo/EditProfile";
 import { Login } from "./Components/Authorization/Login";
 import { Registration } from "./Components/Authorization/Registration";
+import { Home } from "./Components/Home/index";
 
 const Mainrouter = () => {
   return (
@@ -14,6 +15,7 @@ const Mainrouter = () => {
       <Route path="/Myfeedback" element={<Myfeedback />} />
       <Route path="/Mychosen" element={<Chosen />} />
       <Route path="/editProfile" element={<EditProfile />} />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 };
