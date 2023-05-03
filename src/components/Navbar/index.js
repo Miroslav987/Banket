@@ -1,14 +1,12 @@
-import logo from "../../assets/img/logo-line.svg"
+// import logo from "../../assets/img/logo-line.svg"
 import "./style.scss"
+import Logo from "../Logo";
 
 const Navbar = () => {
 
     return(
         <nav className="navbar">
-            <div className="logo">
-                <h1>Banquet</h1>
-                <img src={logo} alt="logo-line" className="logo-line"/>
-            </div>
+                <Logo />
             <div className="login">
                 <h6 className="login-reg">
                     Войти

@@ -2,7 +2,7 @@ $primary-color: #A07D50;
 $primary-text-color: #373E44;
 
 .navbar{
-    height: 10vh;
+    min-height: 10vh;
     width: 100%;
     position: static;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -10,13 +10,6 @@ $primary-text-color: #373E44;
     align-items: center;
     justify-content: center;
     padding: 0rem 4rem;
-
-    h1{
-        flex-grow: 1;
-        color: $primary-color;
-        font-family: 'Amarante', cursive;
-        font-size: 36px;
-    }
 
 }
 
@@ -45,12 +38,4 @@ $primary-text-color: #373E44;
 
 .logo{
     flex: 1;
-    .logo-line{
-        margin-top: -8px;
-        margin-left: -10px;
-        width: 140px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 }

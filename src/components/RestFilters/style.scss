@@ -20,6 +20,7 @@ $checkbox-border: #B0BABF;
     }
     .filter-header{
         display: flex;
+        gap: 7rem;
     }
     .filter-h6{
         font-family: 'Inter', sans-serif;
@@ -29,6 +30,16 @@ $checkbox-border: #B0BABF;
     svg{
         width: 2rem;
         height: 2rem;
+    }
+    .reload-filter{
+        display: flex;
+        align-items: center;
+        justify-content: cente;
+        color: $checkbox-border;
+        gap: 10px;
+
+    }
+    .reload{
         color: $checkbox-border;
     }
 }
