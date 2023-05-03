@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import "./style.scss";
+import reload from "../../assets/img/reload.svg"
 
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import ActiveButton from "../Buttons";
+import Rating from '@mui/material/Rating';
 
 const Filters = () => {
   const [checkedItems, setCheckedItems] = useState({});
@@ -43,15 +45,22 @@ const Filters = () => {
   ];
 
   const ratingItems = [
-    { id: 'rating_1', label: '1 Star' },
-    { id: 'rating_2', label: '2 Star' },
+    { id: 'rating_1', value: 1 },
+    { id: 'rating_2', value: 2 },
+    { id: 'rating_3', value: 3 },
+    { id: 'rating_4', value: 4 },
+    { id: 'rating_5', value: 5 },
+    
   ];
 
   return (
     <div className='filters'>
         <div className='filter-header'>
             <h5>Фильтр</h5>
-            <p>очистить фильтр</p>
+            <div className='reload-filter'>
+                <img src={reload} alt='reload icon' className='reload'/>
+                <p>очистить фильтр</p>
+            </div>
         </div>  
     <FormGroup sx={{gap: 3}}>
         <h6 className='filter-h6'>Местоположение</h6>
@@ -63,6 +72,7 @@ const Filters = () => {
                 name={item.id}
                 checked={checkedItems[item.id] || false}
                 onChange={handleCheckboxChange}
+                sx={{color: "#B0BABF"}}
               />
             }
             label={item.label}
@@ -76,10 +86,10 @@ const Filters = () => {
             key={item.id}
             control={
               <Checkbox
-              xs={{fontWeight: "lighter"}}
                 name={item.id}
                 checked={checkedItems[item.id] || false}
                 onChange={handleCheckboxChange}
+                sx={{color: "#B0BABF"}}
               />
             }
             label={item.label}
@@ -96,6 +106,7 @@ const Filters = () => {
                 name={item.id}
                 checked={checkedItems[item.id] || false}
                 onChange={handleCheckboxChange}
+                sx={{color: "#B0BABF"}}
               />
             }
             label={item.label}
@@ -109,10 +120,10 @@ const Filters = () => {
             key={item.id}
             control={
               <Checkbox
-              xs={{fontWeight: "lighter"}}
                 name={item.id}
                 checked={checkedItems[item.id] || false}
                 onChange={handleCheckboxChange}
+                sx={{color: "#B0BABF"}}
               />
             }
             label={item.label}
@@ -126,13 +137,19 @@ const Filters = () => {
             key={item.id}
             control={
               <Checkbox
-              xs={{fontWeight: "lighter"}}
                 name={item.id}
                 checked={checkedItems[item.id] || false}
                 onChange={handleCheckboxChange}
+                sx={{color: "#B0BABF"}}
               />
             }
-            label={item.label}
+            label={
+              <Rating
+                value={parseInt(item.id.replace('rating_', ''), 10)}
+                readOnly
+                precision={1}
+              />
+            }
           />
         ))}
       </FormGroup>

@@ -21,7 +21,7 @@ export const Register = formData => async () => {
 
 export const login = formData => async () => {
   try {
-    const data = await axios.options(`${API}account/login`, formData);
+    const data = await axios.post(`${API}account/login`, formData);
     // const { data } = await axios.post(`${API}account/login/`, formData);
     console.log(data);
     console.log("Вы вошли");
