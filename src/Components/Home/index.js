@@ -6,7 +6,7 @@ import Filters from "../RestFilters";
 export const Home = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <MainPage />
       <Filters />
     </div>

@@ -7,6 +7,7 @@ import { Myfeedback } from "./Components/MyInfo/MyFeedback";
 import { Chosen } from "./Components/MyInfo/Chosen";
 import { EditProfile } from "./Components/MyInfo/EditProfile";
 import AddRst from "./Components/AddRst/AddRst";
+import { ResetPassword } from "./Components/Authorization/ResetPassword";
 
 const Mainrouter = () => {
   return (
@@ -18,6 +19,7 @@ const Mainrouter = () => {
       <Route path="/Mychosen" element={<Chosen />} />
       <Route path="/editProfile" element={<EditProfile />} />
       <Route path="/addRest" element={<AddRst />} />
+      <Route path="/confirm/password" element={<ResetPassword />} />
     </Routes>
   );
 };

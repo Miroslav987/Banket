@@ -6,7 +6,8 @@ import { setProfile } from "./AuthorizationSlice";
 
 import { setOneProduct, setProduct } from "./AuthorizationSlice";
 const API = "https://banquet.pythonanywhere.com/";
-
+// const API =
+//   "Acess-Control-Allow-Origin:192.168.68.53/https://banquet.pythonanywhere.com/";
 export const Register = formData => async () => {
   try {
     await axios.post(`${API}account/register/`, formData);
@@ -20,12 +21,13 @@ export const Register = formData => async () => {
 
 export const login = formData => async () => {
   try {
-    const { data } = await axios.post(`${API}account/login/`, formData);
-    console.log("data");
+    const data = await axios.options(`${API}account/login`, formData);
+    // const { data } = await axios.post(`${API}account/login/`, formData);
+    console.log(data);
     console.log("Вы вошли");
     // localStorage.setItem("email", email);
-    localStorage.setItem("access", data.access);
-    localStorage.setItem("refresh", data.refresh);
+    // localStorage.setItem("access", data.access);
+    // localStorage.setItem("refresh", data.refresh);
 
     // getprofile();
   } catch (error) {

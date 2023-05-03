@@ -34,11 +34,6 @@ export const Login = () => {
       return;
     }
     let formData = new FormData();
-    let obj = {
-      email: email,
-      password: password,
-    };
-    console.log(obj);
     formData.append("email", email);
     formData.append("password", password);
     login(formData);
