@@ -1,6 +1,7 @@
 // import logo from "../../assets/img/logo-line.svg"
 import "./style.scss";
 import Logo from "../Logo";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,9 +9,13 @@ const Navbar = () => {
       <nav className="navbar">
         <Logo />
         <div className="login">
-          <h6 className="login-reg">Войти</h6>
+          <Link to="/login">
+            <h6 className="login-reg">Войти</h6>
+          </Link>
           <p>/</p>
-          <h6 className="login-reg">Регистрация</h6>
+          <Link to="/register">
+            <h6 className="login-reg">Регистрация</h6>
+          </Link>
         </div>
       </nav>
     </>

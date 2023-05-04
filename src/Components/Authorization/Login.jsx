@@ -17,6 +17,8 @@ import back from "../../img/back.svg";
 import exit from "../../img/exit.svg";
 import google from "../../img/google.svg";
 import { useActions } from "../hooks/UseActions";
+import { Link } from "react-router-dom";
+import MainPage from "../../pages/Main";
 export const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -40,12 +42,27 @@ export const Login = () => {
   }
   return (
     <>
+      <Box sx={{ width: "100%", position: "absolute" }}>
+        <MainPage />
+      </Box>
+
+      <Box
+        sx={{
+          width: "100%",
+          height: "110vh",
+          position: "absolute",
+          zIndex: 10,
+          background: "rgba(120, 120, 120, 0.8)",
+        }}></Box>
       <Box
         sx={{
           height: "97vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          position: "relative",
+          top: 0,
+          zIndex: 999,
         }}>
         <Box
           sx={{
@@ -53,12 +70,17 @@ export const Login = () => {
             height: "600px",
             borderRadius: "10px",
             boxShadow: "0px  0px 10px 0px black",
+            background: "white",
           }}>
           <Box
             sx={{ margin: "30px", display: "flex", flexDirection: "column" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <img src={back} alt="" />
-              <img src={exit} alt="" />
+              <Link to="/register">
+                <img src={back} alt="" />
+              </Link>
+              <Link to="/">
+                <img src={exit} alt="" />
+              </Link>
             </Box>
             <Typography sx={{ margin: "40px auto", fontSize: "23px" }}>
               Вход
@@ -107,10 +129,15 @@ export const Login = () => {
                   display: "flex",
                   justifyContent: "end",
                 }}>
-                <Typography
-                  sx={{ color: "#2439F9", borderBottom: "2px solid #2439F9" }}>
-                  Забыли пароль ?
-                </Typography>
+                <Link to="/confirm/password">
+                  <Typography
+                    sx={{
+                      color: "#2439F9",
+                      borderBottom: "2px solid #2439F9",
+                    }}>
+                    Забыли пароль ?
+                  </Typography>
+                </Link>
               </Box>
             </Box>
             <Button

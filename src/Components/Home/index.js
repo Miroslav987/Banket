@@ -5,10 +5,9 @@ import Filters from "../RestFilters";
 
 export const Home = () => {
   return (
-    <div>
-      {/* <Navbar /> */}
+    <>
       <MainPage />
       <Filters />
-    </div>
+    </>
   );
 };

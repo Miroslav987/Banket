@@ -4,29 +4,42 @@ import {
   Alert,
   Box,
   Button,
+  Checkbox,
   FormControl,
+  FormControlLabel,
+  FormLabel,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
+  Radio,
+  RadioGroup,
   Stack,
   TextField,
   Typography,
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-
 import back from "../../img/back.svg";
 import exit from "../../img/exit.svg";
 import { useActions } from "../hooks/UseActions";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import MainPage from "../../pages/Main";
 export const Registration = () => {
   const { Register } = useActions();
-  const [showPassword, setShowPassword] = React.useState(false);
-  const handleClickShowPassword = () => setShowPassword(show => !show);
-  const handleMouseDownPassword = event => {
+  // ! Password
+  const [showPassword1, setShowPassword1] = React.useState(false);
+  const [showPassword2, setShowPassword2] = React.useState(false);
+
+  const handleClickShowPassword1 = () => setShowPassword1(show => !show);
+  const handleMouseDownPassword1 = event => {
     event.preventDefault();
   };
+  const handleClickShowPassword2 = () => setShowPassword2(show => !show);
+  const handleMouseDownPassword2 = event => {
+    event.preventDefault();
+  };
+  // ?Password
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -38,12 +51,7 @@ export const Registration = () => {
       return;
     }
     let formData = new FormData();
-    // let obj = {
-    //   email: email,
-    //   password: password,
-    //   password2: confirmPass,
-    // };
-    // console.log(obj);
+
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password2", confirmPass);
@@ -51,12 +59,27 @@ export const Registration = () => {
   }
   return (
     <>
+      <Box sx={{ width: "100%", position: "absolute" }}>
+        <MainPage />
+      </Box>
+
+      <Box
+        sx={{
+          width: "100%",
+          height: "110vh",
+          position: "absolute",
+          zIndex: 10,
+          background: "rgba(120, 120, 120, 0.8)",
+        }}></Box>
       <Box
         sx={{
           height: "97vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          position: "relative",
+          top: 0,
+          zIndex: 999,
         }}>
         <Box
           sx={{
@@ -64,12 +87,17 @@ export const Registration = () => {
             height: "600px",
             borderRadius: "10px",
             boxShadow: "0px  0px 10px 0px black",
+            background: "white",
           }}>
           <Box
             sx={{ margin: "30px", display: "flex", flexDirection: "column" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <img src={back} alt="" />
-              <img src={exit} alt="" />
+              <Link to="/login">
+                <img src={back} alt="" />
+              </Link>
+              <Link to="/">
+                <img src={exit} alt="" />
+              </Link>
             </Box>
             <Typography sx={{ margin: "40px auto", fontSize: "23px" }}>
               Регистрация
@@ -98,15 +126,15 @@ export const Registration = () => {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   // id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword1 ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
+                        onClick={handleClickShowPassword1}
+                        onMouseDown={handleMouseDownPassword1}
                         edge="end">
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                        {showPassword1 ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
@@ -122,15 +150,15 @@ export const Registration = () => {
                   value={confirmPass}
                   onChange={e => SetConfirmPass(e.target.value)}
                   id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword2 ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
+                        onClick={handleClickShowPassword2}
+                        onMouseDown={handleMouseDownPassword2}
                         edge="end">
-                        {showPassword ? <Visibility /> : <VisibilityOff />}
+                        {showPassword2 ? <Visibility /> : <VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
@@ -138,10 +166,34 @@ export const Registration = () => {
                 />
               </FormControl>
               <br />
-              <Box sx={{ display: "flex", justifyContent: "end" }}>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}>
+                <FormControl sx={{ color: "#989B9E" }}>
+                  <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    defaultValue="female"
+                    name="radio-buttons-group">
+                    <FormControlLabel
+                      value="default"
+                      control={<Radio />}
+                      label="Гость"
+                    />
+                    <FormControlLabel
+                      value=" business"
+                      control={<Radio />}
+                      label="Ресторатор"
+                    />
+                  </RadioGroup>
+                </FormControl>
                 <NavLink
                   to="/login"
                   style={{
+                    height: "auto",
                     color: "#2439F9",
                     borderBottom: "2px solid #2439F9",
                   }}>
