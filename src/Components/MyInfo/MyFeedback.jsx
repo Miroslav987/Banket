@@ -3,8 +3,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import Delete from "@mui/icons-material/DeleteOutline";
 import "./person.scss";
+import { useActions } from "../hooks/UseActions";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const Myfeedback = () => {
+  const { Profile } = useSelector(store => store.todo);
+  const { getprofile, AccRefresh } = useActions();
+  useEffect(() => {
+    getprofile();
+  }, []);
   return (
     <>
       <Box className="profcateg">

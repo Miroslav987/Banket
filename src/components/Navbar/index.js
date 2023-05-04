@@ -4,19 +4,26 @@ import Logo from "../Logo";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const email = localStorage.getItem("email");
   return (
     <>
       <nav className="navbar">
         <Logo />
-        <div className="login">
-          <Link to="/login">
-            <h6 className="login-reg">Войти</h6>
+        {email ? (
+          <Link to="/Myfeedback">
+            <div className="avatar">{email[0]}</div>
           </Link>
-          <p>/</p>
-          <Link to="/register">
-            <h6 className="login-reg">Регистрация</h6>
-          </Link>
-        </div>
+        ) : (
+          <div className="login">
+            <Link to="/login">
+              <h6 className="login-reg">Войти</h6>
+            </Link>
+            <p>/</p>
+            <Link to="/register">
+              <h6 className="login-reg">Регистрация</h6>
+            </Link>
+          </div>
+        )}
       </nav>
     </>
   );

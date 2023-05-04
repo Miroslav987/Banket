@@ -23,10 +23,11 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import back from "../../img/back.svg";
 import exit from "../../img/exit.svg";
 import { useActions } from "../hooks/UseActions";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import MainPage from "../../pages/Main";
 export const Registration = () => {
   const { Register } = useActions();
+  const navigate = useNavigate();
   // ! Password
   const [showPassword1, setShowPassword1] = React.useState(false);
   const [showPassword2, setShowPassword2] = React.useState(false);
@@ -55,7 +56,7 @@ export const Registration = () => {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password2", confirmPass);
-    Register(formData);
+    Register(formData, navigate);
   }
   return (
     <>
