@@ -18,7 +18,7 @@ const Mainrouter = () => {
       <Route path="/Myfeedback" element={<Myfeedback />} />
       <Route path="/Mychosen" element={<Chosen />} />
       <Route path="/editProfile" element={<EditProfile />} />
-      <Route path="/addRest" element={<AddRst />} />
+      <Route path="/add/rest" element={<AddRst />} />
       <Route path="/confirm/password" element={<ResetPassword />} />
     </Routes>
   );

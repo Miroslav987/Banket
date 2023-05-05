@@ -1,11 +1,7 @@
-import { Dispatch } from "@reduxjs/toolkit";
+// import { Dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { setProfile } from "./AuthorizationSlice";
+import { setProfile } from "./RestaurantSlice";
 
-import { setOneProduct, setProduct } from "./AuthorizationSlice";
-import { Try } from "@mui/icons-material";
 const API = "https://banquet.pythonanywhere.com/";
 
 export const Register = (formData, navigate) => async () => {
@@ -20,17 +16,33 @@ export const Register = (formData, navigate) => async () => {
   }
 };
 
-export const login = (formData, email) => async () => {
+export const login = (formData, email, navigate) => async () => {
   try {
     const { data } = await axios.post(`${API}account/login/`, formData);
-    // const { data } = await axios.post(`${API}account/login/`, formData);
     console.log(data);
     console.log("Вы вошли");
     localStorage.setItem("email", email);
     localStorage.setItem("access", data.access);
     localStorage.setItem("refresh", data.refresh);
-
-    // getprofile();
+    getprofile();
+    navigate("/Myfeedback");
+  } catch (error) {
+    alert("Введен не правильно логин или пароль ");
+    console.error(error);
+    console.log("Ошибка 3");
+  }
+};
+export const EditAccount = formData => async () => {
+  try {
+    const access = localStorage.getItem("access");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    };
+    const { data } = await axios.put(`${API}account/update/`, formData, config);
+    console.log(data);
+    getprofile();
   } catch (error) {
     console.error(error);
     console.log("Ошибка 3");
@@ -53,19 +65,17 @@ export const AccRefresh = () => async dispatch => {
 export const getprofile = () => async dispatch => {
   try {
     const access = localStorage.getItem("access");
-    const email = localStorage.getItem("email");
-    const Authorization = `JWT ${access}`;
 
     const config = {
       headers: {
-        Authorization,
+        Authorization: `Bearer ${access}`,
       },
     };
     let formData = new FormData();
-    formData.append("detail", access);
+    formData.append("access", access);
     // formData.append("email", email);
-    const { data } = await axios(`${API}account/users/me/`, formData);
-    // dispatch(setProfile(data));
+    const { data } = await axios.get(`${API}account/profile/`, config);
+    dispatch(setProfile([data]));
     console.log(data);
   } catch (error) {
     console.error(error);

@@ -45,14 +45,18 @@ export const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPass, SetConfirmPass] = useState("");
-
+  const [category, SetCategory] = useState("default");
+  console.log(category);
   function SaveReg() {
     if (!email.trim() || !password.trim() || !confirmPass.trim()) {
       alert("Неправильно");
       return;
     }
+    if (password !== confirmPass) {
+      alert("пароли не совпадают");
+      return;
+    }
     let formData = new FormData();
-
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password2", confirmPass);
@@ -181,11 +185,13 @@ export const Registration = () => {
                     name="radio-buttons-group">
                     <FormControlLabel
                       value="default"
+                      onChange={() => SetCategory("default")}
                       control={<Radio />}
                       label="Гость"
                     />
                     <FormControlLabel
                       value=" business"
+                      onChange={() => SetCategory("business")}
                       control={<Radio />}
                       label="Ресторатор"
                     />

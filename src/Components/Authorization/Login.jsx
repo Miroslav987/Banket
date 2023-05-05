@@ -17,11 +17,11 @@ import back from "../../img/back.svg";
 import exit from "../../img/exit.svg";
 import google from "../../img/google.svg";
 import { useActions } from "../hooks/UseActions";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainPage from "../../pages/Main";
 export const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
   const handleMouseDownPassword = event => {
@@ -38,7 +38,7 @@ export const Login = () => {
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
-    login(formData, email);
+    login(formData, email, navigate);
   }
   return (
     <>

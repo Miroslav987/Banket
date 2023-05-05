@@ -6,6 +6,7 @@ import "./person.scss";
 import { useActions } from "../hooks/UseActions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { PersonalArea } from "./PersonalArea";
 
 export const Myfeedback = () => {
   const { Profile } = useSelector(store => store.todo);
@@ -20,55 +21,7 @@ export const Myfeedback = () => {
           <NavLink to="/">Главная </NavLink> /
           <NavLink to="/Myfeedback"> Личный кабинет </NavLink>
         </Box>
-        <Box
-          sx={{
-            width: "55vw",
-            height: "130px",
-            background: "#F9F9F9",
-            marginTop: "30px",
-            boxShadow: "0px 1px 1px rgba(0, 0, 0, 0.2)",
-          }}>
-          <Box
-            sx={{
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              margin: "40px",
-            }}>
-            <Box sx={{ display: "flex" }}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "50px",
-                  height: "50px",
-                  background: "purple",
-                  borderRadius: "50px",
-                  color: "white",
-                  marginRight: "10px",
-                }}>
-                <Typography>V</Typography>
-              </Box>
-              <Typography>
-                Hgfbfhn <br />
-                Hfbthtrtrh
-              </Typography>
-            </Box>
-            <Box mb="20px">
-              <NavLink
-                to="/editProfile"
-                style={{
-                  padding: "10px",
-                  border: "1px solid #A07D50",
-                  borderRadius: "5px",
-                }}>
-                Редактировать профиль{" "}
-              </NavLink>
-            </Box>
-          </Box>
-        </Box>
+        <PersonalArea />
         <Box sx={{ marginTop: "20px", width: "auto" }}>
           <Box className="Mychose">
             <NavLink to="/Myfeedback">
