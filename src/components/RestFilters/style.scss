@@ -43,3 +43,19 @@ $checkbox-border: #B0BABF;
         color: $checkbox-border;
     }
 }
+
+.filter-icon{
+    margin-right: 1rem;
+}
+
+@media screen and (max-width: 1030px){
+    .filters{
+        padding: 4rem 4rem;
+    }
+}
+
+@media screen and (max-width: 900px){
+    #filter-header{
+        display: none;
+    }
+}

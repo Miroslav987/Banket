@@ -1,21 +1,31 @@
-import React, {useState} from 'react';
-import "./style.scss";
-import reload from "../../assets/img/reload.svg"
+import React, { useState } from 'react';
+import './style.scss';
+import reload from '../../assets/img/reload.svg';
+import filterIcon from '../../assets/img/filter.svg';
 
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import ActiveButton from "../Buttons";
+import ActiveButton from '../Buttons';
 import Rating from '@mui/material/Rating';
+import IconButton from '@mui/material/IconButton';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const Filters = () => {
+  const [filtersVisible, setFiltersVisible] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
+
+  const theme = useTheme();
+  const isScreen900px = useMediaQuery(theme.breakpoints.down(900));
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setCheckedItems((prevState) => ({ ...prevState, [name]: checked }));
   };
 
+  const handleFilterIconToggle = () => {
+    setFiltersVisible(!filtersVisible);
+  };
 
   const locationItems = [
     { id: ' Центр_Бишкека', label: ' Центр Бишкека' },
@@ -40,7 +50,15 @@ const Filters = () => {
 
   return (
     <div className='filters'>
-        <div className='filter-header'>
+        {isScreen900px && (
+        <IconButton onClick={handleFilterIconToggle}>
+          <img src={filterIcon} alt='filter icon' className='filter-icon'/>
+          <h5>Фильтр</h5>
+      </IconButton>
+    )}
+    {(!isScreen900px || filtersVisible) && (
+      <>
+        <div className='filter-header' id='filter-header'>
             <h5>Фильтр</h5>
             <div className='reload-filter'>
                 <img src={reload} alt='reload icon' className='reload'/>
@@ -105,6 +123,8 @@ const Filters = () => {
         ))}
       </FormGroup>
       <ActiveButton action={"Найти"}/>
+      </>
+    )}
     </div>
   );
 };
