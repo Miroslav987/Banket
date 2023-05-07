@@ -49,6 +49,8 @@ const Filters = () => {
   ];
 
   return (
+<>
+  {filtersVisible && isScreen900px && <div className="overlay"></div>}
     <div className='filters'>
         {isScreen900px && (
         <IconButton onClick={handleFilterIconToggle}>
@@ -126,6 +128,7 @@ const Filters = () => {
       </>
     )}
     </div>
+  </>
   );
 };
 

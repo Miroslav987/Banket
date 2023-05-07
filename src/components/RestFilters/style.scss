@@ -11,6 +11,8 @@ $checkbox-border: #B0BABF;
     align-items: flex-start;
     gap: 3rem;
     padding: 4rem 6.5rem;
+    z-index: 10;
+    position: relative;
     h5{
         font-size: 20px;
         font-weight: 500;
@@ -48,6 +50,17 @@ $checkbox-border: #B0BABF;
     margin-right: 1rem;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    z-index: 5;
+    pointer-events: none;
+  }
+
 @media screen and (max-width: 1030px){
     .filters{
         padding: 4rem 4rem;
@@ -58,4 +71,5 @@ $checkbox-border: #B0BABF;
     #filter-header{
         display: none;
     }
+   
 }
