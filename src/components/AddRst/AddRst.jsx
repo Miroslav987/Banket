@@ -1,119 +1,198 @@
-import React, { useState } from 'react';
-import './AddRst.css'
+import React, { useState } from "react";
+import "./AddRst.css";
+import { useActions } from "../hooks/UseActions";
+import { useRestaurant } from "../hooks/UseRestaurant";
 
 const AddRst = () => {
-
   function uploadInput() {
-      let updInput = document.querySelector('.upload-input')
-      updInput.click()
+    let updInput = document.querySelector(".upload-input");
+    updInput.click();
   }
 
   function getImageData(id) {
-    let updInput = document.querySelector('.upload-input')
+    let updInput = document.querySelector(".upload-input");
     let files = updInput.files[0];
 
     if (files) {
-      let fileReader = new FileReader()
+      let fileReader = new FileReader();
 
-      fileReader.readAsDataURL(files)
+      fileReader.readAsDataURL(files);
 
       fileReader.onload = function () {
-          let updImage = document.querySelectorAll('.upload-image')
-          updImage.forEach((item) => {
-            item.classList.add('active');
-            item.src = this.result;
-          })
-      }
+        let updImage = document.querySelectorAll(".upload-image");
+        updImage.forEach(item => {
+          item.classList.add("active");
+          item.src = this.result;
+        });
+      };
     }
+  }
+  const { PostRest } = useRestaurant();
+
+  const [title, setTitle] = useState("");
+  const [price_people, setPrice] = useState("");
+  const [locate, setLocate] = useState("");
+
+  const [working_hours, setWorkHouse] = useState("");
+  const [features, setFeatures] = useState("");
+  const [category, setCategory] = useState(2);
+  const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+  // const [img, setImg] = useState("");
+
+  function AddRest() {
+    if (!title.trim()) {
+      alert("Нужно заполнить все поля");
+      return;
+    }
+    let formData = new FormData();
+    formData.append("title", title);
+    formData.append("price_people", price_people);
+    formData.append("working_hours", working_hours);
+    formData.append("features", features);
+
+    // formData.append("img", title);
+    PostRest(formData);
   }
 
   return (
-    <div  className='addProduct'>
-      <h1 style={{fontWeight: 500, fontSize: '32px'}} >Добавить Заведение</h1>
-      <p className='addProduct_text' >Создайте уникальную страницу своего заведения, чтобы получить возможность рассказать о нем многомиллионной аудитории и увеличить посещаемость.</p>
-      <div style={{paddingTop: '1rem'}} className='add_block'>
-          <div className="addContent">
-             <h1 style={{fontWeight: 500, fontSize: '32px'}} >О Заведение</h1>
-             <form >
-                <label style={{display: 'block', fontSize: '20px' }} htmlFor="">Название заведения</label>
-                <input className='add_input' type="text" />
+    <div className="addProduct">
+      <h1 style={{ fontWeight: 500, fontSize: "32px" }}>Добавить Заведение</h1>
+      <p className="addProduct_text">
+        Создайте уникальную страницу своего заведения, чтобы получить
+        возможность рассказать о нем многомиллионной аудитории и увеличить
+        посещаемость.
+      </p>
+      <div style={{ paddingTop: "1rem" }} className="add_block">
+        <div className="addContent">
+          <h1 style={{ fontWeight: 500, fontSize: "32px" }}>О Заведение</h1>
+          <form>
+            <label style={{ display: "block", fontSize: "20px" }} htmlFor="">
+              Название заведения
+            </label>
+            <input
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label' htmlFor="">Тип кухни</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Тип кухни
+            </label>
+            <input
+              value={price_people}
+              onChange={e => setPrice(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label'htmlFor="">Город</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Город
+            </label>
+            <input
+              value={locate}
+              onChange={e => setLocate(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label' htmlFor="">Адрес</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Адрес
+            </label>
+            <input
+              value={working_hours}
+              onChange={e => setWorkHouse(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label' htmlFor="">Телефон заведения*</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Телефон заведения*
+            </label>
+            <input
+              value={features}
+              onChange={e => setFeatures(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label' htmlFor="">Вместимость</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Вместимость
+            </label>
+            <input
+              value={features}
+              onChange={e => setFeatures(e.target.value)}
+              className="add_input"
+              type="text"
+            />
 
-                <label className='add_label' htmlFor="">Средний чек</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Средний чек
+            </label>
+            <input className="add_input" type="text" />
 
-                <label className='add_label' htmlFor="">Режим работы</label>
-                <input className='add_input' type="text" />
+            <label className="add_label" htmlFor="">
+              Режим работы
+            </label>
+            <input className="add_input" type="text" />
 
-                <label className='add_label' htmlFor="">Дополнительное</label>
-                <input className='add_input_plus' type="text" />
-             </form>
+            <label className="add_label" htmlFor="">
+              Дополнительное
+            </label>
+            <input className="add_input_plus" type="text" />
+          </form>
+        </div>
+
+        <div className="addImages">
+          <div onClick={uploadInput} className="upload-block">
+            <input
+              onChange={getImageData}
+              className="upload-input"
+              type="file"
+            />
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
           </div>
 
-          <div className='addImages'>
-           <div onClick={uploadInput} className="upload-block">
-              <input onChange={getImageData} className='upload-input' type="file" />
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
-
-           <div onClick={uploadInput} className="upload-block">
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
-
-           <div onClick={uploadInput} className="upload-block">
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
-
-           <div onClick={uploadInput} className="upload-block">
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
-
-           <div onClick={uploadInput} className="upload-block">
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
-
-           <div onClick={uploadInput} className="upload-block">
-              <div className='upload-messege' >
-                  No file choose
-              </div>
-              <img src="" alt="" className='upload-image' />
-           </div>
+          <div onClick={uploadInput} className="upload-block">
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
           </div>
+
+          <div onClick={uploadInput} className="upload-block">
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
+          </div>
+
+          <div onClick={uploadInput} className="upload-block">
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
+          </div>
+
+          <div onClick={uploadInput} className="upload-block">
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
+          </div>
+
+          <div onClick={uploadInput} className="upload-block">
+            <div className="upload-messege">No file choose</div>
+            <img src="" alt="" className="upload-image" />
+          </div>
+        </div>
       </div>
       <div className="btns_block">
-          <button className="add_btn">Добавить</button>
+        <button onClick={() => AddRest()} className="add_btn">
+          Добавить
+        </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddRst
+export default AddRst;

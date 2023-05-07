@@ -57,7 +57,11 @@ export const PersonalArea = () => {
                     {item.last_name}
                   </Typography>
                 ) : (
-                  <Typography> {item.email}</Typography>
+                  <Typography>
+                    {" "}
+                    {item.email} <br />
+                    Вы {item.category}{" "}
+                  </Typography>
                 )}
               </Box>
               <Box sx={{ display: "flex" }}>

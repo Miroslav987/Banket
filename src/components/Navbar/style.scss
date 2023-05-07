@@ -2,6 +2,11 @@ $primary-color: #a07d50;
 $primary-text-color: #373e44;
 
 .navbar {
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  // left: 0;
+  background-color: white;
   min-height: 10vh;
   width: 100%;
   position: static;

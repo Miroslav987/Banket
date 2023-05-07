@@ -18,6 +18,7 @@ import "./edit.scss";
 import "./person.scss";
 import { useActions } from "../hooks/UseActions";
 import { useState } from "react";
+import Footer from "../Footer";
 
 export const EditProfile = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -151,6 +152,7 @@ export const EditProfile = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

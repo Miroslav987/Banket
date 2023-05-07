@@ -5,6 +5,7 @@ import "./person.scss";
 import Delete from "../../img/delete.svg";
 import StarIcon from "@mui/icons-material/Star";
 import { PersonalArea } from "./PersonalArea";
+import Footer from "../Footer";
 export const Chosen = () => {
   return (
     <>
@@ -105,6 +106,7 @@ export const Chosen = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

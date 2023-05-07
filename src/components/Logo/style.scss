@@ -1,15 +1,14 @@
-$primary-color: #A07D50;
-
-   
-h1{
+$primary-color: #a07d50;
+.logo {
+  width: 1vw;
+  h1 {
     flex-grow: 1;
     color: $primary-color;
-    font-family: 'Amarante', cursive;
+    font-family: "Amarante", cursive;
     font-size: 36px;
+  }
+  .logo-line {
+    width: 10vw;
+    // margin-bottom: -7px;
+  }
 }
-.logo-line{
-    margin-bottom: -7px;
-}
-
-
-

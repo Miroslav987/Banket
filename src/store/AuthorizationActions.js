@@ -9,6 +9,7 @@ export const Register = (formData, navigate) => async () => {
     await axios.post(`${API}account/register/`, formData);
     console.log(formData);
     console.log("Зарегис");
+    alert("проверьте свою почту");
     navigate("/login");
   } catch (error) {
     console.error(error);

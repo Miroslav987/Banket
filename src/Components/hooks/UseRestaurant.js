@@ -4,8 +4,8 @@ import * as Actions from "../../store/AuthorizationActions";
 import * as Restaurant from "../../store/Restaurant";
 export { useDispatch } from "react-redux";
 
-export const useActions = () => {
+export const useRestaurant = () => {
   const dispatch = useDispatch();
 
-  return bindActionCreators(Actions, dispatch);
+  return bindActionCreators(Restaurant, dispatch);
 };

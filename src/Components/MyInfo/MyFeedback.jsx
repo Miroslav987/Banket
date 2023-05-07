@@ -7,6 +7,7 @@ import { useActions } from "../hooks/UseActions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { PersonalArea } from "./PersonalArea";
+import Footer from "../Footer";
 
 export const Myfeedback = () => {
   const { Profile } = useSelector(store => store.todo);
@@ -116,6 +117,7 @@ export const Myfeedback = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </>
   );
 };

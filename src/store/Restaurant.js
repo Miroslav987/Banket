@@ -1,14 +1,12 @@
-import { Dispatch } from "@reduxjs/toolkit";
+// import { Dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { setProfile } from "./RestaurantSlice";
 
 import { setOneProduct, setProduct } from "./RestaurantSlice";
-import { Try } from "@mui/icons-material";
 const API = "https://banquet.pythonanywhere.com/";
 
-export const Register = formData => async () => {
+export const PostRest = formData => async () => {
   try {
     const access = localStorage.getItem("access");
     const config = {
@@ -16,10 +14,8 @@ export const Register = formData => async () => {
         access,
       },
     };
-    await axios.post(`${API}account/create/`, formData, config);
-    console.log(formData);
+    await axios.post(`${API}restaurant/create/`, formData, config);
     console.log("ресторан добавлен");
-    navigate("/login");
   } catch (error) {
     console.error(error);
     console.log("Ошибка 1");
@@ -57,25 +53,25 @@ export const Register = formData => async () => {
 //   }
 // };
 
-export const getprofile = () => async dispatch => {
-  try {
-    const access = localStorage.getItem("access");
-    // const email = localStorage.getItem("email");
-    // const Authorization = `JWT ${access}`;
+// export const getprofile = () => async dispatch => {
+//   try {
+//     const access = localStorage.getItem("access");
+//     // const email = localStorage.getItem("email");
+//     // const Authorization = `JWT ${access}`;
 
-    const config = {
-      headers: {
-        access,
-      },
-    };
-    let formData = new FormData();
-    formData.append("access", access);
-    // formData.append("email", email);
-    const { data } = await axios.get(`${API}account/profile/`, config);
-    // dispatch(setProfile(data));
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-    console.log("Ошибка 6");
-  }
-};
+//     const config = {
+//       headers: {
+//         access,
+//       },
+//     };
+//     let formData = new FormData();
+//     formData.append("access", access);
+//     // formData.append("email", email);
+//     const { data } = await axios.get(`${API}account/profile/`, config);
+//     // dispatch(setProfile(data));
+//     console.log(data);
+//   } catch (error) {
+//     console.error(error);
+//     console.log("Ошибка 6");
+//   }
+// };

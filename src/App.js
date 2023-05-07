@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import Mainrouter from "./Mainrouter";
 import Navbar from "./Components/Navbar";
 import { useActions } from "./Components/hooks/UseActions";
+import { Box } from "@mui/material";
 
 const App = () => {
-  const { AccRefresh } = useActions();
+  const { AccRefresh, getprofile } = useActions();
   useEffect(() => {
     AccRefresh();
+    getprofile();
   }, []);
   let count = 0;
   let intervalId = setInterval(function () {
@@ -19,7 +21,9 @@ const App = () => {
   return (
     <>
       <Navbar />
+      {/* <Box mt="50px"> */}
       <Mainrouter />
+      {/* </Box> */}
     </>
   );
 };
