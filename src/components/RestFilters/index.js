@@ -28,22 +28,7 @@ const Filters = () => {
     { id: 'price_over_3000', label: 'более 3000' },
   ];
 
-  const occasionsItems = [
-    { id: 'юбилей', label: 'юбилей' },
-    { id: 'свадьба', label: 'свадьба' },
-    { id: 'фуршет', label: 'фуршет' },
-    { id: 'день_рождения', label: 'день рождения' },
-    { id: 'детский_праздник', label: 'детский праздник' },
-  ];
-
-  const cuisineItems = [
-    { id: 'азиатская', label: 'азиатская' },
-    { id: 'итальянская', label: 'итальянская' },
-    { id: 'узбекская', label: 'узбекская' },
-    { id: 'японская', label: 'японская' },
-    { id: 'китайская', label: 'китайская' },
-  ];
-
+  
   const ratingItems = [
     { id: 'rating_1', value: 1 },
     { id: 'rating_2', value: 2 },
@@ -82,40 +67,6 @@ const Filters = () => {
       <FormGroup sx={{gap: 3}}>
         <h6 className='filter-h6'>Средный чек</h6>
         {priceRangeItems.map((item) => (
-          <FormControlLabel
-            key={item.id}
-            control={
-              <Checkbox
-                name={item.id}
-                checked={checkedItems[item.id] || false}
-                onChange={handleCheckboxChange}
-                sx={{color: "#B0BABF"}}
-              />
-            }
-            label={item.label}
-          />
-        ))}
-      </FormGroup>
-      <FormGroup sx={{gap: 3}}>
-        <h6 className='filter-h6'>Мероприятие</h6>
-        {occasionsItems.map((item) => (
-          <FormControlLabel
-            key={item.id}
-            control={
-              <Checkbox
-                name={item.id}
-                checked={checkedItems[item.id] || false}
-                onChange={handleCheckboxChange}
-                sx={{color: "#B0BABF"}}
-              />
-            }
-            label={item.label}
-          />
-        ))}
-      </FormGroup>
-    <FormGroup sx={{gap: 3}}>
-        <h6 className='filter-h6'>Кухня</h6>
-        {cuisineItems.map((item) => (
           <FormControlLabel
             key={item.id}
             control={
