@@ -20,7 +20,7 @@ export const ResetConfirm = () => {
   return (
     <>
       <>
-        <Box sx={{ width: "100%", position: "absolute" }}>
+        <Box className="mainMob">
           <MainPage />
         </Box>
 

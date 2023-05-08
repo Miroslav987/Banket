@@ -1,6 +1,6 @@
-// import { Dispatch } from "@reduxjs/toolkit";
+// import { dispatch } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setProfile } from "./RestaurantSlice";
+import { setProfile } from "./AuthorizationSlice";
 
 const API = "https://banquet.pythonanywhere.com/";
 

@@ -1,17 +1,17 @@
 import React from "react";
-// import "./style.scss";
+import mainBg from "../../assets/img/main-bg.jpg";
+import mobileBg from "../../assets/img/mobile-bg.jpg";
 
 import Box from "@mui/material/Box";
 import { styled } from "@mui/system";
 import { Typography } from "@mui/material";
-import mainBg from "../../assets/img/main-bg.jpg";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
 const MainPage = () => {
   return (
-    <>
+    <div>
       <BackgroundBox>
         <Typography
           sx={{
@@ -32,13 +32,13 @@ const MainPage = () => {
           />
         </SearchBar>
       </BackgroundBox>
-    </>
+    </div>
   );
 };
 
 export default MainPage;
 
-const BackgroundBox = styled(Box)({
+const BackgroundBox = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "110vh",
   background: `linear-gradient(rgba(55, 62, 68, 0.5), rgba(55, 62, 68, 0.5)), url(${mainBg})`,
@@ -51,7 +51,13 @@ const BackgroundBox = styled(Box)({
   flexDirection: "column",
   gap: "4rem",
   textAlign: "center",
-});
+  [theme.breakpoints.down(880)]: {
+    background: `linear-gradient(rgba(55, 62, 68, 0.5), rgba(55, 62, 68, 0.5)), url(${mobileBg})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  },
+}));
 
 const SearchBar = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -68,7 +74,7 @@ const SearchBar = styled(Box)(({ theme }) => ({
     width: "30rem",
   },
   [theme.breakpoints.down("xs")]: {
-    width: "90%",
+    width: "80%",
     marginLeft: "auto",
     marginRight: "auto",
   },

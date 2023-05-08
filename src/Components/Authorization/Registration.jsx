@@ -25,6 +25,7 @@ import exit from "../../img/exit.svg";
 import { useActions } from "../hooks/UseActions";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import MainPage from "../../pages/Main";
+import "./auth.scss";
 export const Registration = () => {
   const { Register } = useActions();
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export const Registration = () => {
   }
   return (
     <>
-      <Box sx={{ width: "100%", position: "absolute" }}>
+      <Box className="mainMob">
         <MainPage />
       </Box>
 
@@ -78,7 +79,7 @@ export const Registration = () => {
         }}></Box>
       <Box
         sx={{
-          height: "97vh",
+          marginTop: "20px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -86,14 +87,7 @@ export const Registration = () => {
           top: 0,
           zIndex: 999,
         }}>
-        <Box
-          sx={{
-            width: "500px",
-            height: "600px",
-            borderRadius: "10px",
-            boxShadow: "0px  0px 10px 0px black",
-            background: "white",
-          }}>
+        <Box Box className="authBlock">
           <Box
             sx={{ margin: "30px", display: "flex", flexDirection: "column" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>

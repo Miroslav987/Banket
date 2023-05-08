@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Mainrouter from "./Mainrouter";
-import Navbar from "./Components/Navbar";
+import { Navbar } from "./Components/Navbar";
 import { useActions } from "./Components/hooks/UseActions";
 import { Box } from "@mui/material";
 
@@ -16,8 +16,9 @@ const App = () => {
     if (count == 100000000000000000000000000000000000000000n) {
       clearInterval(intervalId);
     }
+    console.log(count);
     AccRefresh();
-  }, 1800000);
+  }, 250000);
   return (
     <>
       <Navbar />

@@ -8,4 +8,5 @@ export const useActions = () => {
   const dispatch = useDispatch();
 
   return bindActionCreators(Actions, dispatch);
+  // bindActionCreators(Restaurant, dispatch)
 };

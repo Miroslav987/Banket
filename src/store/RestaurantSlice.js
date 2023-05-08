@@ -1,33 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
-  profile: null,
-  profileDetails: null,
+  restaurant: null,
 };
 
-const GetProfile = createSlice({
-  name: "GET_PROFILE",
+const GetRest = createSlice({
+  name: "GET_RESTAURANT",
   initialState,
   reducers: {
-    setProfile(state, action) {
-      state.profile = action.payload;
+    setRest(state, action) {
+      state.restaurant = action.payload;
     },
   },
 });
 
-const GetOneProduct = createSlice({
-  name: "GET_ONE_PRODUCT",
-  initialState,
-  reducers: {
-    setOneProduct(state, action) {
-      state.profileDetails = action.payload;
-    },
-  },
-});
+export const Restaurant = GetRest.reducer;
 
-export const Profile = GetProfile.reducer;
-
-export const ProfileOne = GetOneProduct.reducer;
-
-export const { setProfile } = GetProfile.actions;
-export const { setOneProduct } = GetOneProduct.actions;
+export const { setRest } = GetRest.actions;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./AddRst.css";
-import { useActions } from "../hooks/UseActions";
-import { useRestaurant } from "../hooks/UseRestaurant";
+import { useActions } from "../hooks/UseRestaurant";
 
 const AddRst = () => {
   function uploadInput() {
@@ -27,34 +26,36 @@ const AddRst = () => {
       };
     }
   }
-  const { PostRest } = useRestaurant();
+  const { PostRest } = useActions();
 
+  const [image, setImge] = useState(
+    "https://www.interfax.ru/ftproot/photos/photostory/2022/04/29/week/week7_1100.jpg"
+  );
   const [title, setTitle] = useState("");
   const [price_people, setPrice] = useState("");
   const [locate, setLocate] = useState("");
-
   const [working_hours, setWorkHouse] = useState("");
   const [features, setFeatures] = useState("");
-  const [category, setCategory] = useState(2);
-  const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
-  // const [img, setImg] = useState("");
+  const [category, setCategory] = useState(1);
 
   function AddRest() {
-    if (!title.trim()) {
+    if (
+      !title.trim() ||
+      !locate.trim() ||
+      !working_hours.trim() ||
+      !features.trim()
+    ) {
       alert("Нужно заполнить все поля");
       return;
     }
     let formData = new FormData();
+    formData.append("image", image);
     formData.append("title", title);
     formData.append("price_people", price_people);
-    formData.append("working_hours", working_hours);
+    formData.append("locate", locate);
     formData.append("features", features);
+    formData.append("category", category);
+    formData.append("working_hours", working_hours);
 
     // formData.append("img", title);
     PostRest(formData);
@@ -70,9 +71,18 @@ const AddRst = () => {
       </p>
       <div style={{ paddingTop: "1rem" }} className="add_block">
         <div className="addContent">
-          <h1 style={{ fontWeight: 500, fontSize: "32px" }}>О Заведение</h1>
+          <h1
+            style={{ marginBottom: "20px", fontWeight: 500, fontSize: "32px" }}>
+            О Заведение
+          </h1>
           <form>
-            <label style={{ display: "block", fontSize: "20px" }} htmlFor="">
+            <label
+              style={{
+                marginBottom: "10px",
+                display: "block",
+                fontSize: "20px",
+              }}
+              htmlFor="">
               Название заведения
             </label>
             <input
@@ -123,13 +133,14 @@ const AddRst = () => {
             />
 
             <label className="add_label" htmlFor="">
-              Вместимость
+              Фото
             </label>
             <input
-              value={features}
-              onChange={e => setFeatures(e.target.value)}
+              src={image}
+              // value={image}
+              onChange={e => setImge(e.target.value)}
               className="add_input"
-              type="text"
+              type="image"
             />
 
             <label className="add_label" htmlFor="">
