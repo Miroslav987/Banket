@@ -30,13 +30,14 @@ export const Chosen = () => {
         </Box>
         <Box className="Chosen">
           <Typography>Избранные места | 3 места</Typography>
+
           <Box className="chosenCard">
             <Box>
               <img
                 src="https://images.wallpaperscraft.ru/image/single/kafe_restoran_stolik_110567_3840x2160.jpg"
                 alt=""
               />
-              <Box className="deleteChosen">
+              <Box className="deleteChosen1">
                 <img src={Delete} alt="" /> Удалить
               </Box>
             </Box>
@@ -62,6 +63,9 @@ export const Chosen = () => {
               <Typography>Бишкек, Проспект Победы 351</Typography>
             </Box>
             <Box>
+              <Box className="deleteChosen2">
+                <img src={Delete} alt="" /> Удалить
+              </Box>
               <Typography sx={{ textAlign: "end" }}>
                 Банкетный чек на гостя: <br /> от 1000с{" "}
               </Typography>
@@ -73,7 +77,7 @@ export const Chosen = () => {
                 src="https://images.wallpaperscraft.ru/image/single/kafe_restoran_stolik_110567_3840x2160.jpg"
                 alt=""
               />
-              <Box className="deleteChosen">
+              <Box className="deleteChosen1">
                 <img src={Delete} alt="" /> Удалить
               </Box>
             </Box>
@@ -99,6 +103,9 @@ export const Chosen = () => {
               <Typography>Бишкек, Проспект Победы 351</Typography>
             </Box>
             <Box>
+              <Box className="deleteChosen2">
+                <img src={Delete} alt="" /> Удалить
+              </Box>
               <Typography sx={{ textAlign: "end" }}>
                 Банкетный чек на гостя: <br /> от 1000с{" "}
               </Typography>
@@ -106,6 +113,7 @@ export const Chosen = () => {
           </Box>
         </Box>
       </Box>
+
       <Footer />
     </>
   );

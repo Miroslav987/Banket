@@ -20,7 +20,7 @@ export const ResetPassword = () => {
   return (
     <>
       <>
-        <Box sx={{ width: "100%", position: "absolute" }}>
+        <Box className="mainMob">
           <MainPage />
         </Box>
 

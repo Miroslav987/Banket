@@ -1,6 +1,9 @@
 $primary-color: #a07d50;
+
 .logo {
-  width: 1vw;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 0rem;
   h1 {
     flex-grow: 1;
     color: $primary-color;
@@ -9,6 +12,14 @@ $primary-color: #a07d50;
   }
   .logo-line {
     width: 10vw;
-    // margin-bottom: -7px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .logo {
+    padding: 0rem 0rem 0.5rem 0rem;
+    .logo-line {
+      width: 30vw;
+    }
   }
 }

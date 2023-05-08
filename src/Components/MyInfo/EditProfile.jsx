@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Button,
@@ -19,6 +19,7 @@ import "./person.scss";
 import { useActions } from "../hooks/UseActions";
 import { useState } from "react";
 import Footer from "../Footer";
+import { useSelector } from "react-redux";
 
 export const EditProfile = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -26,12 +27,15 @@ export const EditProfile = () => {
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+  const name = localStorage.getItem("name");
+  const last = localStorage.getItem("last");
 
   const { EditAccount } = useActions();
-  const [first_name, setName] = useState("");
-  const [last_name, setLast] = useState("");
+  const [first_name, setName] = useState(name);
+  const [last_name, setLast] = useState(last);
   const [username, setUser] = useState("");
   const [avatar, setAvatar] = useState("");
+  console.log(avatar);
   function editProf() {
     let formData = new FormData();
     formData.append("username", username);
@@ -39,11 +43,13 @@ export const EditProfile = () => {
     formData.append("last_name", last_name);
     formData.append("avatar", avatar);
     EditAccount(formData);
+    localStorage.setItem("name", first_name);
+    localStorage.setItem("last", last_name);
   }
   return (
     <>
       <Box className="profcateg">
-        <Box>
+        <Box className="path">
           <NavLink to="/">Главная </NavLink> /
           <NavLink to="/Myfeedback"> Личный кабинет </NavLink> /
           <NavLink to="/editProfile"> Редактировать профиль </NavLink>
@@ -54,6 +60,7 @@ export const EditProfile = () => {
             <label className="feedback__label">
               К
               <input
+                accept="image/png, image/jpeg"
                 type="file"
                 id="file_in"
                 className="feedback__file"

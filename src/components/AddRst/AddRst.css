@@ -1,78 +1,84 @@
 .addProduct {
-    width: 1200px;
-    margin: 0 auto;
+  width: 1200px;
+  margin: 50px auto;
 }
 .addProduct_text {
-    font-size: 20px;
-    width: 700px;
+  margin-top: 20px;
+  font-size: 20px;
+  width: 700px;
 }
 .add_label {
-    display: block;
-    font-size: 20px;
-    padding-top: 1rem;
-    padding-bottom: 9px;
+  display: block;
+  font-size: 20px;
+  padding-top: 1rem;
+  padding-bottom: 9px;
 }
 .add_input {
-    width: 300px;
-    height: 28px;
-    border: 0.3px solid rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
+  padding: 10px;
+  width: 360px;
+  height: 32px;
+  border: 0.3px solid rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
 }
 .add_input_plus {
-    width: 300px;
-    height: 98px;
-    border: 0.3px solid rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
+  width: 360px;
+  padding: 10px 10px;
+  height: 98px;
+  border: 0.3px solid rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
 }
 .add_block {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 .addImages {
-    display: grid;
-    grid-template-columns: repeat(2, 3fr);
-    padding: 5.5rem 0rem;
+  display: grid;
+  grid-template-columns: repeat(2, 3fr);
+  padding: 5.5rem 0rem;
 }
 .upload-block {
-    padding-left: 10px;
-    width: 200px;
-    height: 200px;
-    border: 1px dashed rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-left: 1rem;
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+  border: 3px dashed rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: 1rem;
+  border-radius: 10px;
 }
+
 .upload-input {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    pointer-events: 0;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  pointer-events: 0;
 }
 
 .upload-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    opacity: 0;
+  margin-top: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
 }
 
 .upload-image.active {
-    opacity: 1;
+  opacity: 1;
 }
 .btns_block {
-    padding-left: 62.5rem;
-    padding-top: 5rem;
+  padding-left: 62.5rem;
+  padding-top: 5rem;
 }
 .add_btn {
-    background-color: #A07D50;
-    border-radius: 8px;
-    width: 200px;
-    height: 48px;
-    border: none;
-    color: white;
+  background-color: #a07d50;
+  border-radius: 8px;
+  width: 200px;
+  height: 48px;
+  border: none;
+  color: white;
 }

@@ -54,7 +54,7 @@ export const Myfeedback = () => {
                   25 апреля 2023
                 </Typography>
               </Box>
-              <Box className="deleteCom">
+              <Box className="deleteCom1">
                 <Delete /> Удалить отзыв
               </Box>
             </Box>
@@ -63,17 +63,10 @@ export const Myfeedback = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, nesciunt velit. Odit, iusto. Consectetur tempora
                 repellat voluptate laudantium. Nisi omnis tempora ad culpa
-                repellat fuga dolores aliquid laborum libero, delectus,
-                doloremque odio tempore? Quibusdam rem cum repudiandae
-                voluptatum, molestiae atque neque dignissimos? Eaque ut libero,
-                modi dolore aperiam nesciunt, dolorum aliquid quia animi nobis,
-                unde inventore et voluptates a harum consectetur placeat neque
-                adipisci quaerat possimus magnam est. Distinctio maiores
-                adipisci eveniet suscipit, aperiam iste pariatur ipsam hic,
-                perspiciatis inventore nobis ipsum? Quis molestiae aut
-                voluptatibus labore accusantium ut ea iste, nemo corrupti
-                eveniet molestias, cum, rerum reprehenderit hic ratione?
               </Typography>
+            </Box>
+            <Box className="deleteCom2">
+              <Delete /> Удалить отзыв
             </Box>
           </Box>
           <Box className="feedcard">
@@ -93,7 +86,7 @@ export const Myfeedback = () => {
                   25 апреля 2023
                 </Typography>
               </Box>
-              <Box className="deleteCom">
+              <Box className="deleteCom1">
                 <Delete /> Удалить отзыв
               </Box>
             </Box>
@@ -102,17 +95,10 @@ export const Myfeedback = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, nesciunt velit. Odit, iusto. Consectetur tempora
                 repellat voluptate laudantium. Nisi omnis tempora ad culpa
-                repellat fuga dolores aliquid laborum libero, delectus,
-                doloremque odio tempore? Quibusdam rem cum repudiandae
-                voluptatum, molestiae atque neque dignissimos? Eaque ut libero,
-                modi dolore aperiam nesciunt, dolorum aliquid quia animi nobis,
-                unde inventore et voluptates a harum consectetur placeat neque
-                adipisci quaerat possimus magnam est. Distinctio maiores
-                adipisci eveniet suscipit, aperiam iste pariatur ipsam hic,
-                perspiciatis inventore nobis ipsum? Quis molestiae aut
-                voluptatibus labore accusantium ut ea iste, nemo corrupti
-                eveniet molestias, cum, rerum reprehenderit hic ratione?
               </Typography>
+            </Box>
+            <Box className="deleteCom2">
+              <Delete /> Удалить отзыв
             </Box>
           </Box>
         </Box>

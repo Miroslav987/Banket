@@ -6,6 +6,96 @@
 }
 
 // ! Start
+
+.MyArea {
+  width: 60vw;
+  height: 130px;
+  background: white;
+  margin-top: 30px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  .MyAreaBox {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px;
+  }
+  .mytextAva {
+    font-size: 1.1em;
+  }
+  #myAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: purple;
+    border-radius: 50px;
+    color: white;
+    margin-right: 10px;
+  }
+  .areaBtn {
+    margin-bottom: 20px;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #a07d50;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .MyArea {
+    // display: flex;
+    width: 80vw;
+    .mytext {
+      font-size: 1em;
+    }
+    #myAvatar {
+      width: 50px;
+      height: 50px;
+    }
+    .areaBtn {
+      font-size: 0.9em;
+    }
+  }
+}
+@media screen and (max-width: 450px) {
+  .profcateg {
+    margin: 20px;
+  }
+  .MyArea {
+    width: 90vw;
+    margin-top: 10px;
+    padding: 10px;
+    .MyAreaBox {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .mytext {
+      display: flex;
+    }
+
+    .areaBtn {
+      font-size: 0.5em;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .MyArea {
+    margin-top: 20px;
+  }
+  #myAvatar {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+// ? End
+
+// ! Start
 .Mychose {
   display: flex;
 
@@ -40,14 +130,15 @@
 
 // ! Start
 .Feedback {
-  margin-top: 20px;
+  margin-top: 10px;
   width: 50vw;
   background-color: #f9f9f9;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 50px;
+  margin-bottom: 10px;
 
   .feedcard {
-    margin-top: 20px;
+    margin-top: 30px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -55,7 +146,7 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 10px;
-      .deleteCom {
+      .deleteCom1 {
         display: flex;
         align-items: center;
         font-family: sans-serif;
@@ -68,14 +159,54 @@
       color: #787878;
     }
   }
+  .deleteCom2 {
+    display: none;
+  }
 }
+
+@media screen and (max-width: 880px) {
+  .Feedback {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .Feedback {
+    width: 90vw;
+    padding: 30px;
+    .deleteCom1 {
+      display: none !important;
+    }
+    .deleteCom2 {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      font-family: sans-serif;
+      margin-top: 10px;
+      color: #787878;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .Feedback {
+    width: 90vw;
+    padding: 20px;
+    .feedcdTwo {
+      width: 100%;
+      padding: 7px;
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
 // ? End
 
 // ! Start
 
 .Chosen {
   margin-top: 20px;
-  width: 50vw;
+  width: 55vw;
   .chosenCard {
     display: flex;
     justify-content: space-between;
@@ -90,7 +221,10 @@
       letter-spacing: 0.3px;
     }
   }
-  .deleteChosen {
+  .deleteChosen2 {
+    display: none;
+  }
+  .deleteChosen1 {
     padding-top: 10px;
     font-size: 10px;
     color: #787878;
@@ -105,17 +239,68 @@
   img {
     height: 150px;
     border-radius: 5px;
+    padding-right: 15px;
   }
   .chosenCardIn {
     padding-right: 30px;
-    .css-1vooibu-MuiSvgIcon-root {
-      padding-top: 10px;
-      padding-bottom: 20px;
-      padding-right: 15px;
+    .css-34he1w-MuiRating-decimal {
+      padding-right: 5px;
+      padding-top: 5px;
+      padding-bottom: 15px;
     }
     p {
       font-size: 14px;
       color: #787878;
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .Chosen {
+    width: 75vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .profcateg {
+    margin: 50px;
+  }
+  .Chosen {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .profcateg {
+    margin: 20px;
+  }
+  .Chosen {
+    .chosenCard {
+      flex-direction: column;
+      .deleteChosen1 {
+        display: none;
+      }
+      .deleteChosen2 {
+        padding-top: 10px;
+        font-size: 10px;
+        color: #787878;
+        display: flex;
+        align-items: center;
+        font-family: sans-serif;
+        img {
+          height: 90%;
+          padding-right: 5px;
+        }
+      }
+      p {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Chosen {
+    img {
+      height: 125px;
     }
   }
 }

@@ -18,6 +18,8 @@ import exit from "../../img/exit.svg";
 import google from "../../img/google.svg";
 import { useActions } from "../hooks/UseActions";
 import { Link, useNavigate } from "react-router-dom";
+import "./auth.scss";
+
 import MainPage from "../../pages/Main";
 export const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -42,7 +44,7 @@ export const Login = () => {
   }
   return (
     <>
-      <Box sx={{ width: "100%", position: "absolute" }}>
+      <Box className="mainMob">
         <MainPage />
       </Box>
 
@@ -56,7 +58,7 @@ export const Login = () => {
         }}></Box>
       <Box
         sx={{
-          height: "97vh",
+          marginTop: "20px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -64,14 +66,7 @@ export const Login = () => {
           top: 0,
           zIndex: 999,
         }}>
-        <Box
-          sx={{
-            width: "500px",
-            height: "600px",
-            borderRadius: "10px",
-            boxShadow: "0px  0px 10px 0px black",
-            background: "white",
-          }}>
+        <Box className="authBlock">
           <Box
             sx={{ margin: "30px", display: "flex", flexDirection: "column" }}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -150,17 +145,6 @@ export const Login = () => {
                 textTransform: "capitalize",
               }}>
               Войти
-            </Button>
-            <Button
-              sx={{
-                border: "1px solid grey",
-                color: "grey",
-                width: "300px",
-                margin: " auto",
-                textTransform: "capitalize",
-                borderRadius: "10px",
-              }}>
-              <img src={google} alt="" /> Или войти через Google
             </Button>
           </Box>
         </Box>

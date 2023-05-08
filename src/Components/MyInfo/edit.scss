@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-right: 15px;
   }
   .editLogo {
     margin: 40px 0px 20px 0px;
@@ -33,6 +34,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 50px;
     .inpIcon {
       color: rgba(255, 255, 255, 0) !important;
     }
@@ -74,4 +76,32 @@
 
 .feedback__file {
   display: none;
+}
+
+@media screen and (max-width: 880px) {
+  .path {
+    display: none;
+  }
+  .edit {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .BlockRight {
+      input {
+        width: 50vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .edit {
+    width: 90vw;
+    .BlockRight {
+      .edProfBt {
+        margin: 0;
+      }
+    }
+  }
 }
