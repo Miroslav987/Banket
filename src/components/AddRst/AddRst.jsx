@@ -40,10 +40,10 @@ const AddRst = () => {
 
   function AddRest() {
     if (
-      !title.trim() ||
-      !locate.trim() ||
-      !working_hours.trim() ||
-      !features.trim()
+      !title.trim()
+      // !locate.trim() ||
+      // !working_hours.trim() ||
+      // !features.trim()
     ) {
       alert("Нужно заполнить все поля");
       return;
@@ -51,11 +51,11 @@ const AddRst = () => {
     let formData = new FormData();
     formData.append("image", image);
     formData.append("title", title);
-    formData.append("price_people", price_people);
-    formData.append("locate", locate);
-    formData.append("features", features);
+    formData.append("price_people", title);
+    formData.append("locate", title);
+    formData.append("features", title);
     formData.append("category", category);
-    formData.append("working_hours", working_hours);
+    formData.append("working_hours", title);
 
     // formData.append("img", title);
     PostRest(formData);
@@ -95,32 +95,51 @@ const AddRst = () => {
             <label className="add_label" htmlFor="">
               Тип кухни
             </label>
-            <input className="add_input" type="text" />
+            <input
+              className="add_input"
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
 
             <label className="add_label" htmlFor="">
               Город
             </label>
-            <input className="add_input" type="text" />
+            <input
+              className="add_input"
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
 
             <label className="add_label" htmlFor="">
               Адрес
             </label>
-            <input className="add_input" type="text" />
+            <input
+              className="add_input"
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
 
             <label className="add_label" htmlFor="">
               Телефон заведения*
             </label>
-            <input className="add_input" type="text" />
+            <input
+              className="add_input"
+              type="text"
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+            />
 
             <label className="add_label" htmlFor="">
               Фото
             </label>
             <input
-              src={image}
-              // value={image}
+              value={image}
               onChange={e => setImge(e.target.value)}
               className="add_input"
-              type="image"
+              type="text"
             />
 
             <label className="add_label" htmlFor="">
@@ -178,7 +197,9 @@ const AddRst = () => {
         </div>
       </div>
       <div className="btns_block">
-        <button className="add_btn">Добавить</button>
+        <button onClick={() => AddRest()} className="add_btn">
+          Добавить
+        </button>
       </div>
     </div>
   );
