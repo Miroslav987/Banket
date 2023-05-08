@@ -8,6 +8,7 @@ import { Chosen } from "./Components/MyInfo/Chosen";
 import { EditProfile } from "./Components/MyInfo/EditProfile";
 import AddRst from "./Components/AddRst/AddRst";
 import { ResetPassword } from "./Components/Authorization/ResetPassword";
+import Details from "./Components/Details/Details";
 
 const Mainrouter = () => {
   return (
@@ -20,6 +21,7 @@ const Mainrouter = () => {
       <Route path="/editProfile" element={<EditProfile />} />
       <Route path="/add/rest" element={<AddRst />} />
       <Route path="/confirm/password" element={<ResetPassword />} />
+      <Route path="/details" element={<Details/>} />
     </Routes>
   );
 };

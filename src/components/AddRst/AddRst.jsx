@@ -95,42 +95,22 @@ const AddRst = () => {
             <label className="add_label" htmlFor="">
               Тип кухни
             </label>
-            <input
-              value={price_people}
-              onChange={e => setPrice(e.target.value)}
-              className="add_input"
-              type="text"
-            />
+            <input className="add_input" type="text" />
 
             <label className="add_label" htmlFor="">
               Город
             </label>
-            <input
-              value={locate}
-              onChange={e => setLocate(e.target.value)}
-              className="add_input"
-              type="text"
-            />
+            <input className="add_input" type="text" />
 
             <label className="add_label" htmlFor="">
               Адрес
             </label>
-            <input
-              value={working_hours}
-              onChange={e => setWorkHouse(e.target.value)}
-              className="add_input"
-              type="text"
-            />
+            <input className="add_input" type="text" />
 
             <label className="add_label" htmlFor="">
               Телефон заведения*
             </label>
-            <input
-              value={features}
-              onChange={e => setFeatures(e.target.value)}
-              className="add_input"
-              type="text"
-            />
+            <input className="add_input" type="text" />
 
             <label className="add_label" htmlFor="">
               Фото
@@ -198,9 +178,7 @@ const AddRst = () => {
         </div>
       </div>
       <div className="btns_block">
-        <button onClick={() => AddRest()} className="add_btn">
-          Добавить
-        </button>
+        <button className="add_btn">Добавить</button>
       </div>
     </div>
   );
